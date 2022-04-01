@@ -1,7 +1,12 @@
 'use strict';
 
-let numBot = 99;
+let numBot = getRandomInt(1, 100);
+//numBot = 99;
 let numUser;
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 const isNumber = function(num) {
     return !isNaN((parseFloat(num))) && isFinite(num);
@@ -13,6 +18,9 @@ function func() {
 
     do {
          numUser = +prompt('Угадай число от 1 до 100');
+         if (!isNumber(numUser)) {
+             alert('Введи число!');
+         }
     } while (!isNumber(numUser));
 
 if (numUser === null || numUser === undefined || numUser === 0) {
